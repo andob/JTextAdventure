@@ -2,5 +2,5 @@ apply plugin: 'java'
 apply plugin: 'kotlin'
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
