@@ -1,0 +1,9 @@
+include ':android-sample', ':jtextadventure-android'
+include ':awt-sample'
+include ':cli-sample'
+
+include ':jtextadventure'
+include ':jtextadventure-awt'
+include ':jtextadventure-cli'
+
+rootProject.name='JTextAdventureAndroidSample'
