@@ -40,6 +40,7 @@ class TextAdventureGameRunner
 
     fun dispose()
     {
+        game.shouldTerminate=true
         game.dispose()
         console.dispose()
         while(isGameRunning) {}

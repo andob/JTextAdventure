@@ -9,5 +9,7 @@ abstract class TextAdventureGame<CONSOLE : IConsoleEmulator>
     var exceptionLogger : ((Throwable) -> (Unit))? =
         { ex -> ex.printStackTrace() }
 
+    var shouldTerminate : Boolean = false
+
     open fun dispose() {}
 }
