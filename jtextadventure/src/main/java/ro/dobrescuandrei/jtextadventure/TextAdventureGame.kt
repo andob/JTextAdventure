@@ -2,6 +2,7 @@ package ro.dobrescuandrei.jtextadventure
 
 abstract class TextAdventureGame
 (
+    @JvmField
     val console : IConsoleEmulator
 ) : Runnable
 {

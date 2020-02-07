@@ -4,8 +4,9 @@ import android.app.Activity
 import ro.dobrescuandrei.jtextadventure.IConsoleEmulator
 import java.util.*
 
-class AndroidConsoleEmulator
+open class AndroidConsoleEmulator
 (
+    @JvmField
     val consoleView : TextAdventureConsoleView
 ) : IConsoleEmulator
 {
