@@ -1,14 +1,14 @@
 package ro.dobrescuandrei.jtextadventure.androidsample
 
 import android.content.Context
-import ro.dobrescuandrei.jtextadventure.IConsoleEmulator
 import ro.dobrescuandrei.jtextadventure.TextAdventureGame
+import ro.dobrescuandrei.jtextadventure.android.AndroidConsoleEmulator
 
 class SampleTextAdventureGame
 (
-    console : IConsoleEmulator,
+    console : AndroidConsoleEmulator,
     var context : Context?
-) : TextAdventureGame(console)
+) : TextAdventureGame<AndroidConsoleEmulator>(console)
 {
     override fun run() = resetGame()
 

@@ -1,9 +1,13 @@
 package ro.dobrescuandrei.jtextadventure
 
 class TextAdventureGameRunner
+<
+    CONSOLE : IConsoleEmulator,
+    GAME : TextAdventureGame<CONSOLE>
+>
 (
-    val console : IConsoleEmulator,
-    val game : TextAdventureGame
+    val console : CONSOLE,
+    val game : GAME
 ) : Thread()
 {
     @Volatile private var isGameRunning = false

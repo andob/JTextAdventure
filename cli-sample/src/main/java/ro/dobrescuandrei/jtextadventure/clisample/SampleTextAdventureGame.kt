@@ -3,7 +3,7 @@ package ro.dobrescuandrei.jtextadventure.clisample
 import ro.dobrescuandrei.jtextadventure.IConsoleEmulator
 import ro.dobrescuandrei.jtextadventure.TextAdventureGame
 
-class SampleTextAdventureGame : TextAdventureGame
+class SampleTextAdventureGame : TextAdventureGame<IConsoleEmulator>
 {
     constructor(console: IConsoleEmulator) : super(console)
 

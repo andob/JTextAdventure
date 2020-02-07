@@ -1,9 +1,9 @@
 package ro.dobrescuandrei.jtextadventure
 
-abstract class TextAdventureGame
+abstract class TextAdventureGame<CONSOLE : IConsoleEmulator>
 (
     @JvmField
-    val console : IConsoleEmulator
+    val console : CONSOLE
 ) : Runnable
 {
     var exceptionLogger : ((Throwable) -> (Unit))? =
