@@ -8,30 +8,12 @@ import android.util.TypedValue
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import kotlinx.android.synthetic.main.simple_text_adventure_console_view.view.*
 
 class SimpleTextAdventureConsoleView : TextAdventureConsoleView
 {
-    private var textViewsContainer : LinearLayout? = null
-    private var buttonsContainer : LinearLayout? = null
-
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
-
-    override fun init()
-    {
-        super.init()
-
-        textViewsContainer=findViewById(R.id.textViewsContainer)
-        buttonsContainer=findViewById(R.id.buttonsContainer)
-    }
-
-    override fun onDetachedFromWindow()
-    {
-        textViewsContainer=null
-        buttonsContainer=null
-
-        super.onDetachedFromWindow()
-    }
 
     override fun getLayoutId() = R.layout.simple_text_adventure_console_view
 

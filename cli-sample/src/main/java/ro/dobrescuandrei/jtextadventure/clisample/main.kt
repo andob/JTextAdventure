@@ -1,5 +1,6 @@
 package ro.dobrescuandrei.jtextadventure.clisample
 
+import ro.andreidobrescu.base_sample.SampleTextAdventureGame
 import ro.dobrescuandrei.jtextadventure.TextAdventureGameRunner
 import ro.dobrescuandrei.jtextadventure.cli.CLIConsoleEmulator
 

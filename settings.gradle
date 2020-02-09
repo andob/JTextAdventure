@@ -1,4 +1,4 @@
-include ':android-sample'
+include ':android-sample', ':base-sample'
 include ':awt-sample'
 include ':cli-sample'
 

@@ -1,4 +1,4 @@
-package ro.dobrescuandrei.jtextadventure.clisample
+package ro.andreidobrescu.base_sample
 
 import ro.dobrescuandrei.jtextadventure.IConsoleEmulator
 import ro.dobrescuandrei.jtextadventure.TextAdventureGame
