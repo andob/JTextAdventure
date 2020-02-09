@@ -17,6 +17,7 @@ class SampleTextAdventureGame : TextAdventureGame<IConsoleEmulator>
                 console.promptButtons("yes", "no")
                 if (console.read().toLowerCase()=="yes")
                     resetGame()
+                else console.write("Game over!")
             },
             onPlayerGoesToRight = {
                 showOutsideOfTheHouse(
