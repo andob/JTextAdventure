@@ -8,7 +8,6 @@ import android.util.TypedValue
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
-import kotlinx.android.synthetic.main.simple_text_adventure_console_view.view.*
 
 class SimpleTextAdventureConsoleView : TextAdventureConsoleView
 {
@@ -19,12 +18,17 @@ class SimpleTextAdventureConsoleView : TextAdventureConsoleView
 
     override fun removeSubviews()
     {
+        val textViewsContainer=findViewById<LinearLayout>(R.id.textViewsContainer)
+        val buttonsContainer=findViewById<LinearLayout>(R.id.buttonsContainer)
+
         textViewsContainer?.removeAllViews()
         buttonsContainer?.removeAllViews()
     }
 
     override fun addTextView(text : String)
     {
+        val textViewsContainer=findViewById<LinearLayout>(R.id.textViewsContainer)
+
         val textView=TextView(context)
         textView.layoutParams=LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
@@ -38,6 +42,8 @@ class SimpleTextAdventureConsoleView : TextAdventureConsoleView
 
     override fun addButton(text : String)
     {
+        val buttonsContainer=findViewById<LinearLayout>(R.id.buttonsContainer)
+
         val button=Button(context)
         button.layoutParams=LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
