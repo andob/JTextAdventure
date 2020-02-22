@@ -126,6 +126,85 @@ class MainActivity : AppCompatActivity()
 }
 ```
 
+**To pass arguments to ``IceCreamTroubleshootingAlgorithm``, simply use the constructor:**
+
+```kotlin
+class IceCreamMachineTroubleshootingAlgorithm
+(
+    console : IConsoleEmulator,
+    var context : Context?,
+    var someOtherArgument : Int
+) : TextAdventureGame<IConsoleEmulator>(console)
+{
+    override fun run()
+    {
+        console.write(context.getString(R.string.some_message))
+        //....................................................
+    }
+
+    override fun dispose()
+    {
+        //set context to null in order to prevent memory leaks!!!
+        context=null
+    }
+}
+```
+
+**To customise the UI, simply extend ``TextAdventureConsoleView``:**
+
+```kotlin
+class MyCustomTextAdventureConsoleView : TextAdventureConsoleView
+{
+    constructor(context: Context?) : super(context)
+    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
+
+    override fun getLayoutId() = R.layout.my_custom_layout
+
+    override fun removeSubviews()
+    {
+        //todo remove all subviews
+    }
+
+    override fun addTextView(text : String)
+    {
+        //todo add TextView. called on console.write(text)
+    }
+
+    override fun addButton(text : String)
+    {
+        //todo add Button. called on console.promptButtons()
+        //todo on button click, call consoleEmulator?.onButtonClicked(text)
+    }
+}
+```
+
+To study a sample implementation, see [``SimpleTextAdventureConsoleView.kt``](https://github.com/andob/JTextAdventure/blob/master/jtextadventure-android/src/main/java/ro/dobrescuandrei/jtextadventure/android/SimpleTextAdventureConsoleView.kt) and [``simple_text_adventure_console_view.xml``](https://github.com/andob/JTextAdventure/blob/master/jtextadventure-android/src/main/res/layout/simple_text_adventure_console_view.xml) files.
+
+```kotlin
+class MainActivity : AppCompatActivity()
+{
+    val gameRunner by lazy {
+        val consoleView=findViewById<MyCustomTextAdventureConsoleView>(R.id.consoleView)
+        val consoleEmulator=AndroidConsoleEmulator(consoleView = consoleView, context = this, someOtherArgument = 4)
+        val game=IceCreamMachineTroubleshootingAlgorithm(console = consoleEmulator)
+        TextAdventureGameRunner(console = consoleEmulator, game = game)
+    }
+
+    override fun onCreate(savedInstanceState : Bundle?)
+    {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.sample_activity)
+        gameRunner.start()
+    }
+
+    override fun onDestroy()
+    {
+        gameRunner.dispose()
+        super.onDestroy()
+    }
+}
+```
+
 ### License
 
 ```
