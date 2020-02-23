@@ -29,6 +29,8 @@ repositories {
 ```
 dependencies {
     implementation 'com.github.andob.JTextAdventure:jtextadventure:1.0.5'
+    implementation 'com.github.andob.JTextAdventure:jtextadventure-android:1.0.5'
+    implementation 'com.github.andob.JTextAdventure:jtextadventure-cli:1.0.5' //optional, for CLI
 }
 `````
 
