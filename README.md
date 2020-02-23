@@ -28,7 +28,7 @@ repositories {
 
 ```
 dependencies {
-    implementation 'com.github.andob.JTextAdventure:jtextadventure:1.0.4'
+    implementation 'com.github.andob.JTextAdventure:jtextadventure:1.0.5'
 }
 `````
 

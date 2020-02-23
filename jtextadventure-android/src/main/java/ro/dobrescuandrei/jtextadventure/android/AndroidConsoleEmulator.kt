@@ -11,7 +11,7 @@ open class AndroidConsoleEmulator
 ) : IConsoleEmulator
 {
     private val inputQueue = LinkedList<String>()
-    private var shouldDisposeInputReadOperations = false
+    private var shouldDisposeIO = false
 
     init
     {
@@ -20,7 +20,7 @@ open class AndroidConsoleEmulator
 
     override fun dispose()
     {
-        shouldDisposeInputReadOperations=true
+        shouldDisposeIO=true
         consoleView.consoleEmulator=null
     }
 
@@ -29,6 +29,9 @@ open class AndroidConsoleEmulator
 
     override fun write(message : String)
     {
+        if (shouldDisposeIO)
+            throw Throwable("IO disposed")
+
         runOnUiThread {
             consoleView.addTextView(message)
             consoleView.requestLayout()
@@ -37,6 +40,9 @@ open class AndroidConsoleEmulator
 
     override fun promptButtons(vararg buttons : String)
     {
+        if (shouldDisposeIO)
+            throw Throwable("IO disposed")
+
         runOnUiThread {
             for (buttonText in buttons)
             {
@@ -48,13 +54,13 @@ open class AndroidConsoleEmulator
 
     override fun read() : String
     {
-        if (shouldDisposeInputReadOperations)
-            return ""
+        if (shouldDisposeIO)
+            throw Throwable("IO disposed")
 
         while (inputQueue.isEmpty())
         {
-            if (shouldDisposeInputReadOperations)
-                return ""
+            if (shouldDisposeIO)
+                throw Throwable("IO disposed")
 
             Thread.sleep(1)
         }
