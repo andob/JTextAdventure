@@ -22,15 +22,15 @@ Import the library with:
 
 ```
 repositories {
-    maven { url "https://jitpack.io" }
+    maven { url "http://www.andob.info" }
 }
 ```
 
 ```
 dependencies {
-    implementation 'com.github.andob.JTextAdventure:jtextadventure:1.0.5'
-    implementation 'com.github.andob.JTextAdventure:jtextadventure-android:1.0.5'
-    implementation 'com.github.andob.JTextAdventure:jtextadventure-cli:1.0.5' //optional, for CLI
+    implementation 'ro.andob.jtextadventure:core:1.0.6'
+    implementation 'ro.andob.jtextadventure:android:1.0.6'
+    implementation 'ro.andob.jtextadventure:cli:1.0.6' //optional, for CLI
 }
 `````
 

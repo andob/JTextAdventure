@@ -23,8 +23,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
 
-    implementation 'com.squareup.leakcanary:leakcanary-android:2.1'
+    implementation 'com.squareup.leakcanary:leakcanary-android:2.2'
 
-    implementation project(":jtextadventure-android")
+    implementation 'ro.andob.jtextadventure:android:1.0.6'
     implementation project(":base-sample")
 }
