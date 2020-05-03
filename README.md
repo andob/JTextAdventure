@@ -22,7 +22,7 @@ Import the library with:
 
 ```
 repositories {
-    maven { url "http://www.andob.info" }
+    maven { url "http://maven.andob.info/reporitory/open_source" }
 }
 ```
 

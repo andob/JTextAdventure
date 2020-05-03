@@ -4,6 +4,6 @@ apply plugin: 'kotlin'
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    implementation 'ro.andob.jtextadventure:cli:1.0.6'
+    implementation project(":jtextadventure-cli")
     implementation project(":base-sample")
 }

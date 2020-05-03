@@ -25,6 +25,6 @@ dependencies {
 
     implementation 'com.squareup.leakcanary:leakcanary-android:2.2'
 
-    implementation 'ro.andob.jtextadventure:android:1.0.6'
-    implementation project(":base-sample")
+    implementation project(":jtextadventure-android")
+    implementation project(":jtextadventure")
 }
