@@ -28,9 +28,9 @@ repositories {
 
 ```
 dependencies {
-    implementation 'ro.andob.jtextadventure:core:1.0.6'
-    implementation 'ro.andob.jtextadventure:android:1.0.6'
-    implementation 'ro.andob.jtextadventure:cli:1.0.6' //optional, for CLI
+    implementation 'ro.andob.jtextadventure:core:1.0.7'
+    implementation 'ro.andob.jtextadventure:android:1.0.7'
+    implementation 'ro.andob.jtextadventure:cli:1.0.7' //optional, for CLI
 }
 `````
 
