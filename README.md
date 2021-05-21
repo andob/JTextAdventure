@@ -52,12 +52,12 @@ class IceCreamTroubleshootingAlgorithm : TextAdventureGame<IConsoleEmulator>
         console.promptYesNoButtons()
         if (console.readBoolean())
         {
-            var theAirFlowsFreely=false
+            var theAirFlowsFreely = false
             while (!theAirFlowsFreely)
             {
                 console.write("Is the machine located in an area that has enough space for the cool air to flow freely?")
                 console.promptYesNoButtons()
-                theAirFlowsFreely=console.readBoolean()
+                theAirFlowsFreely = console.readBoolean()
                 if (!theAirFlowsFreely)
                 {
                     console.write("Move the machine. There should be a minimum of three inches of air space on the sides of the unit.")
@@ -66,12 +66,12 @@ class IceCreamTroubleshootingAlgorithm : TextAdventureGame<IConsoleEmulator>
                 }
             }
             
-            var theAmbiantTemperatureIsTooHigh=true
+            var theAmbiantTemperatureIsTooHigh = true
             while (theAmbiantTemperatureIsTooHigh)
             {
                 console.write("Is the ambiant temperature higher than 37 degrees Celsius?")
                 console.promptYesNoButtons()
-                theAmbiantTemperatureIsTooHigh=console.readBoolean()
+                theAmbiantTemperatureIsTooHigh = console.readBoolean()
                 if (theAmbiantTemperatureIsTooHigh)
                 {
                     console.write("Move the machine in a cooler spot")
@@ -103,13 +103,15 @@ Run it with:
 </LinearLayout>
 ```
 
+
+
 ```kotlin
 class MainActivity : AppCompatActivity()
 {
     val gameRunner by lazy {
-        val consoleView=findViewById<SimpleTextAdventureConsoleView>(R.id.consoleView)
-        val consoleEmulator=AndroidConsoleEmulator(consoleView = consoleView)
-        val game=IceCreamTroubleshootingAlgorithm(console = consoleEmulator)
+        val consoleView = findViewById<SimpleTextAdventureConsoleView>(R.id.consoleView)
+        val consoleEmulator = AndroidConsoleEmulator(consoleView = consoleView)
+        val game = IceCreamTroubleshootingAlgorithm(console = consoleEmulator)
         TextAdventureGameRunner(console = consoleEmulator, game = game)
     }
 
@@ -147,7 +149,7 @@ class IceCreamMachineTroubleshootingAlgorithm
     override fun dispose()
     {
         //set context to null in order to prevent memory leaks!!!
-        context=null
+        context = null
     }
 }
 ```
@@ -186,9 +188,9 @@ To study a sample implementation, see [``SimpleTextAdventureConsoleView.kt``](ht
 class MainActivity : AppCompatActivity()
 {
     val gameRunner by lazy {
-        val consoleView=findViewById<MyCustomTextAdventureConsoleView>(R.id.consoleView)
-        val consoleEmulator=AndroidConsoleEmulator(consoleView = consoleView, context = this, someOtherArgument = 4)
-        val game=IceCreamMachineTroubleshootingAlgorithm(console = consoleEmulator)
+        val consoleView = findViewById<MyCustomTextAdventureConsoleView>(R.id.consoleView)
+        val consoleEmulator = AndroidConsoleEmulator(consoleView = consoleView, context = this, someOtherArgument = 4)
+        val game = IceCreamMachineTroubleshootingAlgorithm(console = consoleEmulator)
         TextAdventureGameRunner(console = consoleEmulator, game = game)
     }
 
