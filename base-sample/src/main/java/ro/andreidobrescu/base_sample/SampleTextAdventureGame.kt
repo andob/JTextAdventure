@@ -15,7 +15,7 @@ class SampleTextAdventureGame : TextAdventureGame<IConsoleEmulator>
             onPlayerGoesToLeft = {
                 console.write("Game over! Replay???")
                 console.promptButtons("yes", "no")
-                if (console.read().toLowerCase()=="yes")
+                if (console.read().lowercase()=="yes")
                     resetGame()
                 else console.write("Game over!")
             },
@@ -32,7 +32,7 @@ class SampleTextAdventureGame : TextAdventureGame<IConsoleEmulator>
     {
         console.write("You are in a room. There is a door to the left and another door to the right")
         console.promptButtons("go left", "go right")
-        when (console.read().toLowerCase())
+        when (console.read().lowercase())
         {
             "go left" -> onPlayerGoesToLeft()
             "go right" -> onPlayerGoesToRight()
@@ -43,7 +43,7 @@ class SampleTextAdventureGame : TextAdventureGame<IConsoleEmulator>
     {
         console.write("You are outside of the house")
         console.promptButtons("go back")
-        if (console.read().toLowerCase()=="go back")
+        if (console.read().lowercase()=="go back")
             onPlayerGoesBack()
     }
 }
