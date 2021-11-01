@@ -30,7 +30,7 @@ class TextAdventureGameRunner
         }
         catch (ex : Throwable)
         {
-            game.exceptionLogger?.invoke(ex)
+            game.exceptionLogger?.log(ex)
         }
         finally
         {
