@@ -39,7 +39,7 @@ project.afterEvaluate {
             maven(MavenPublication) {
                 groupId 'ro.andob.jtextadventure'
                 artifactId 'android'
-                version '1.0.9'
+                version '1.1.0'
                 artifact(bundleReleaseAar)
             }
         }

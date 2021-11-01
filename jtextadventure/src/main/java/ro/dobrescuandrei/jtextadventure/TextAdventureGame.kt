@@ -6,10 +6,10 @@ abstract class TextAdventureGame<CONSOLE : IConsoleEmulator>
     val console : CONSOLE
 ) : Runnable
 {
-    fun interface ExceptionLogger { fun log(ex : Throwable) }
+    fun interface IExceptionLogger { fun log(ex : Throwable) }
 
-    var exceptionLogger : ExceptionLogger? =
-        ExceptionLogger { it.printStackTrace() }
+    var exceptionLogger : IExceptionLogger? =
+        IExceptionLogger { it.printStackTrace() }
 
     var shouldTerminate : Boolean = false
 
