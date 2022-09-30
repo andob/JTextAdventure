@@ -2,16 +2,17 @@ package ro.dobrescuandrei.jtextadventure.awt
 
 import ro.dobrescuandrei.jtextadventure.IConsoleEmulator
 import java.awt.EventQueue
-import java.util.*
+import java.util.concurrent.LinkedBlockingQueue
 
-open class AWTConsoleEmulator
+class AWTConsoleEmulator
 (
     @JvmField
     val consoleView : TextAdventureConsoleView
 ) : IConsoleEmulator
 {
-    private val inputQueue = LinkedList<String>()
-    private var shouldDisposeInputReadOperations = false
+    private val stdin = LinkedBlockingQueue<String>(Int.MAX_VALUE)
+
+    private fun eof() = (0x04).toChar().toString()
 
     init
     {
@@ -20,7 +21,7 @@ open class AWTConsoleEmulator
 
     override fun dispose()
     {
-        shouldDisposeInputReadOperations=true
+        stdin.add(eof())
         consoleView.consoleEmulator=null
     }
 
@@ -50,18 +51,9 @@ open class AWTConsoleEmulator
 
     override fun read() : String
     {
-        if (shouldDisposeInputReadOperations)
+        val line=stdin.take()
+        if (line==eof())
             return ""
-
-        while (inputQueue.isEmpty())
-        {
-            if (shouldDisposeInputReadOperations)
-                return ""
-
-            Thread.sleep(1)
-        }
-
-        val buttonText=inputQueue.remove()!!
 
         runOnUiThread {
             consoleView.removeSubviews()
@@ -69,11 +61,11 @@ open class AWTConsoleEmulator
             consoleView.repaint()
         }
 
-        return buttonText
+        return line
     }
 
     fun onButtonClicked(buttonText : String)
     {
-        inputQueue.add(buttonText)
+        stdin.add(buttonText)
     }
 }

@@ -2,16 +2,20 @@ package ro.dobrescuandrei.jtextadventure.android
 
 import android.app.Activity
 import ro.dobrescuandrei.jtextadventure.IConsoleEmulator
-import java.util.*
+import java.util.concurrent.LinkedBlockingQueue
+import java.util.concurrent.atomic.AtomicBoolean
 
-open class AndroidConsoleEmulator
+class AndroidConsoleEmulator
 (
     @JvmField
     val consoleView : TextAdventureConsoleView
 ) : IConsoleEmulator
 {
-    private val inputQueue = LinkedList<String>()
-    private var shouldDisposeIO = false
+    private val shouldDisposeStdout = AtomicBoolean(false)
+
+    private val stdin = LinkedBlockingQueue<String>(Int.MAX_VALUE)
+
+    private fun eof() = (0x04).toChar().toString()
 
     init
     {
@@ -20,7 +24,8 @@ open class AndroidConsoleEmulator
 
     override fun dispose()
     {
-        shouldDisposeIO=true
+        stdin.add(eof())
+        shouldDisposeStdout.set(true)
         consoleView.consoleEmulator=null
     }
 
@@ -29,7 +34,7 @@ open class AndroidConsoleEmulator
 
     override fun write(message : String)
     {
-        if (shouldDisposeIO)
+        if (shouldDisposeStdout.get())
             throw Throwable("IO disposed")
 
         runOnUiThread {
@@ -40,7 +45,7 @@ open class AndroidConsoleEmulator
 
     override fun promptButtons(vararg buttons : String)
     {
-        if (shouldDisposeIO)
+        if (shouldDisposeStdout.get())
             throw Throwable("IO disposed")
 
         runOnUiThread {
@@ -54,29 +59,20 @@ open class AndroidConsoleEmulator
 
     override fun read() : String
     {
-        if (shouldDisposeIO)
-            throw Throwable("IO disposed")
-
-        while (inputQueue.isEmpty())
-        {
-            if (shouldDisposeIO)
-                throw Throwable("IO disposed")
-
-            Thread.sleep(1)
-        }
-
-        val buttonText=inputQueue.remove()!!
+        val line=stdin.take()
+        if (line==eof())
+            return ""
 
         runOnUiThread {
             consoleView.removeSubviews()
             consoleView.requestLayout()
         }
 
-        return buttonText
+        return line
     }
 
     fun onButtonClicked(buttonText : String)
     {
-        inputQueue.add(buttonText)
+        stdin.add(buttonText)
     }
 }
