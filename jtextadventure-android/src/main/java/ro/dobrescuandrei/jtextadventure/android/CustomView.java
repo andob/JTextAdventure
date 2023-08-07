@@ -21,7 +21,7 @@ public abstract class CustomView extends RelativeLayout
 
     public void init()
     {
-        LayoutInflater inflater=(LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(getLayoutId(), this, true);
     }
 

@@ -25,7 +25,7 @@ class TextAdventureGameRunner
     {
         try
         {
-            isGameRunning=true
+            isGameRunning = true
             game.run()
         }
         catch (ex : Throwable)
@@ -34,13 +34,13 @@ class TextAdventureGameRunner
         }
         finally
         {
-            isGameRunning=false
+            isGameRunning = false
         }
     }
 
     fun dispose()
     {
-        game.shouldTerminate=true
+        game.shouldTerminate = true
         console.dispose()
         game.dispose()
         while(isGameRunning) {}

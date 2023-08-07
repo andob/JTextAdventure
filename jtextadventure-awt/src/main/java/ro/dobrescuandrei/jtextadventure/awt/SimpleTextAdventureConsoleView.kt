@@ -9,14 +9,14 @@ class SimpleTextAdventureConsoleView : TextAdventureConsoleView()
 
     init
     {
-        layout=GridLayout(2, 1)
+        layout = GridLayout(2, 1)
 
-        labelsContainer=Panel()
-        labelsContainer.layout=CardLayout()
+        labelsContainer = Panel()
+        labelsContainer.layout = CardLayout()
         add(labelsContainer)
 
-        buttonsContainer=Panel()
-        buttonsContainer.layout=FlowLayout()
+        buttonsContainer = Panel()
+        buttonsContainer.layout = FlowLayout()
         add(buttonsContainer)
     }
 
@@ -33,7 +33,7 @@ class SimpleTextAdventureConsoleView : TextAdventureConsoleView()
 
     override fun addButton(text : String)
     {
-        val button=Button(text)
+        val button = Button(text)
 
         button.addActionListener { event ->
             consoleEmulator?.onButtonClicked(text)

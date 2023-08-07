@@ -5,7 +5,7 @@ import ro.dobrescuandrei.jtextadventure.TextAdventureGame
 
 class SampleTextAdventureGame : TextAdventureGame<IConsoleEmulator>
 {
-    constructor(console: IConsoleEmulator) : super(console)
+    constructor(console : IConsoleEmulator) : super(console)
 
     override fun run() = resetGame()
 

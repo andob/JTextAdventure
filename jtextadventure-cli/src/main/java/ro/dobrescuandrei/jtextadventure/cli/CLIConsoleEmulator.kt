@@ -16,7 +16,7 @@ class CLIConsoleEmulator : IConsoleEmulator
 
     override fun promptButtons(vararg buttons : String)
     {
-        promptedButtons=buttons.toList()
+        promptedButtons = buttons.toList()
 
         println("[${buttons.joinToString(separator = " / ")}]")
     }
@@ -25,9 +25,9 @@ class CLIConsoleEmulator : IConsoleEmulator
     {
         while(true)
         {
-            val readLine=stdinScanner.nextLine()!!
-            if (promptedButtons==null||promptedButtons?.isEmpty()==true||
-               (promptedButtons!=null&&readLine in promptedButtons!!))
+            val readLine = stdinScanner.nextLine()!!
+            if (promptedButtons==null || promptedButtons?.isEmpty()==true || 
+               (promptedButtons!=null && readLine in promptedButtons!!))
                 return readLine
         }
     }

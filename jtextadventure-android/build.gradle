@@ -3,10 +3,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'maven-publish'
 
 android {
-    compileSdkVersion 33
+    namespace 'ro.dobrescuandrei.jtextadventure.android'
+    compileSdk 33
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 33
+        minSdk 14
+        targetSdk 33
     }
 
     buildTypes {
@@ -16,15 +17,22 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
     publishing {
         singleVariant("release") {}
     }
-    namespace 'ro.dobrescuandrei.jtextadventure.android'
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
 
     implementation project(":jtextadventure")
 }

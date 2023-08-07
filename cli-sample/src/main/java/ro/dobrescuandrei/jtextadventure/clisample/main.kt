@@ -6,9 +6,9 @@ import ro.dobrescuandrei.jtextadventure.cli.CLIConsoleEmulator
 
 fun main()
 {
-    val consoleEmulator=CLIConsoleEmulator()
-    val game=SampleTextAdventureGame(console = consoleEmulator)
-    val gameRunner=TextAdventureGameRunner(console = consoleEmulator, game = game)
+    val consoleEmulator = CLIConsoleEmulator()
+    val game = SampleTextAdventureGame(console = consoleEmulator)
+    val gameRunner = TextAdventureGameRunner(console = consoleEmulator, game = game)
 
     gameRunner.start()
     gameRunner.join()

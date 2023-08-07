@@ -7,16 +7,16 @@ abstract class TextAdventureConsoleView : CustomView
 {
     var consoleEmulator : AndroidConsoleEmulator? = null
 
-    constructor(context: Context?) : super(context)
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context : Context?) : super(context)
+    constructor(context : Context?, attrs : AttributeSet?) : super(context, attrs)
 
     abstract fun removeSubviews()
-    abstract fun addTextView(text: String)
-    abstract fun addButton(text: String)
+    abstract fun addTextView(text : String)
+    abstract fun addButton(text : String)
 
     override fun onDetachedFromWindow()
     {
-        consoleEmulator=null
+        consoleEmulator = null
         super.onDetachedFromWindow()
     }
 }

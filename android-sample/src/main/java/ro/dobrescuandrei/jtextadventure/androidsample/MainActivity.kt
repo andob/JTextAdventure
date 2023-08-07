@@ -10,9 +10,9 @@ import ro.dobrescuandrei.jtextadventure.android.SimpleTextAdventureConsoleView
 class MainActivity : AppCompatActivity()
 {
     val gameRunner by lazy {
-        val consoleView=findViewById<SimpleTextAdventureConsoleView>(R.id.consoleView)
-        val consoleEmulator=AndroidConsoleEmulator(consoleView = consoleView)
-        val game=SampleTextAdventureGame(console = consoleEmulator)
+        val consoleView = findViewById<SimpleTextAdventureConsoleView>(R.id.consoleView)
+        val consoleEmulator = AndroidConsoleEmulator(consoleView = consoleView)
+        val game = SampleTextAdventureGame(console = consoleEmulator)
         TextAdventureGameRunner(console = consoleEmulator, game = game)
     }
 

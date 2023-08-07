@@ -19,14 +19,14 @@ class AndroidConsoleEmulator
 
     init
     {
-        consoleView.consoleEmulator=this
+        consoleView.consoleEmulator = this
     }
 
     override fun dispose()
     {
         stdin.add(eof())
         shouldDisposeStdout.set(true)
-        consoleView.consoleEmulator=null
+        consoleView.consoleEmulator = null
     }
 
     private inline fun runOnUiThread(crossinline toRun : () -> (Unit)) =
@@ -59,7 +59,7 @@ class AndroidConsoleEmulator
 
     override fun read() : String
     {
-        val line=stdin.take()
+        val line = stdin.take()
         if (line==eof())
             return ""
 

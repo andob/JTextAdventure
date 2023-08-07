@@ -11,15 +11,15 @@ import android.widget.TextView
 
 class SimpleTextAdventureConsoleView : TextAdventureConsoleView
 {
-    constructor(context: Context?) : super(context)
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context : Context?) : super(context)
+    constructor(context : Context?, attrs : AttributeSet?) : super(context, attrs)
 
     override fun getLayoutId() = R.layout.simple_text_adventure_console_view
 
     override fun removeSubviews()
     {
-        val textViewsContainer=findViewById<LinearLayout>(R.id.textViewsContainer)
-        val buttonsContainer=findViewById<LinearLayout>(R.id.buttonsContainer)
+        val textViewsContainer = findViewById<LinearLayout>(R.id.textViewsContainer)
+        val buttonsContainer = findViewById<LinearLayout>(R.id.buttonsContainer)
 
         textViewsContainer?.removeAllViews()
         buttonsContainer?.removeAllViews()
@@ -27,30 +27,30 @@ class SimpleTextAdventureConsoleView : TextAdventureConsoleView
 
     override fun addTextView(text : String)
     {
-        val textViewsContainer=findViewById<LinearLayout>(R.id.textViewsContainer)
+        val textViewsContainer = findViewById<LinearLayout>(R.id.textViewsContainer)
 
-        val textView=TextView(context)
-        textView.layoutParams=LinearLayout.LayoutParams(
+        val textView = TextView(context)
+        textView.layoutParams = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT)
         textView.setTypeface(textView.typeface, Typeface.BOLD)
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16.0f)
         textView.setTextColor(Color.BLACK)
-        textView.text=text
+        textView.text = text
         textViewsContainer?.addView(textView)
     }
 
     override fun addButton(text : String)
     {
-        val buttonsContainer=findViewById<LinearLayout>(R.id.buttonsContainer)
+        val buttonsContainer = findViewById<LinearLayout>(R.id.buttonsContainer)
 
-        val button=Button(context)
-        button.layoutParams=LinearLayout.LayoutParams(
+        val button = Button(context)
+        button.layoutParams = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f)
         button.setTextColor(Color.BLACK)
-        button.text=text
-        button.isAllCaps=false
+        button.text = text
+        button.isAllCaps = false
         buttonsContainer?.addView(button)
 
         button.setOnClickListener {
