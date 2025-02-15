@@ -60,7 +60,7 @@ class AndroidConsoleEmulator
     override fun read() : String
     {
         val line = stdin.take()
-        if (line==eof())
+        if (line == eof())
             return ""
 
         runOnUiThread {

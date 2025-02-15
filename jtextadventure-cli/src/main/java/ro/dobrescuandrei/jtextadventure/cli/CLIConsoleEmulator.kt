@@ -26,8 +26,8 @@ class CLIConsoleEmulator : IConsoleEmulator
         while(true)
         {
             val readLine = stdinScanner.nextLine()!!
-            if (promptedButtons==null || promptedButtons?.isEmpty()==true || 
-               (promptedButtons!=null && readLine in promptedButtons!!))
+            if (promptedButtons == null || promptedButtons?.isEmpty() == true ||
+               (promptedButtons != null && readLine in promptedButtons!!))
                 return readLine
         }
     }

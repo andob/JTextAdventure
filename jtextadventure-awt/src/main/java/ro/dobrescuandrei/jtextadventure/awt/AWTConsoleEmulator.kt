@@ -52,7 +52,7 @@ class AWTConsoleEmulator
     override fun read() : String
     {
         val line = stdin.take()
-        if (line==eof())
+        if (line == eof())
             return ""
 
         runOnUiThread {
